@@ -12,7 +12,6 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-
       title: 'Mercado livre',
       theme: ThemeData(
         primarySwatch: Colors.blue,
@@ -25,7 +24,6 @@ class MyApp extends StatelessWidget {
 class MyHomePage extends StatefulWidget {
   const MyHomePage({Key? key, required this.title}) : super(key: key);
 
-
   final String title;
 
   @override
@@ -35,6 +33,13 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
 
+  static const List<Tab> myTabs = <Tab>[
+    Tab(text: 'LEFT'),
+    Tab(text: 'RIGHT'),
+  ];
+
+  late TabController _tabController;
+
   void _incrementCounter() {
     setState(() {
       _counter++;
@@ -43,43 +48,76 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
-    
-    
-
     return Scaffold(
-      
-      
       appBar: AppBar(
-        
-        
-        leading:Icon(Icons.menu),
-    
-        title: Text(widget.title),
-        backgroundColor: Color(0xfff5d415),
-        bottom:  const TabBar(
-          tabs: <Widget>[
-            
-          ],
+        elevation: 0,
+        leading: Icon(Icons.menu,color: Colors.black),
+        title: Container(
+          child: TextField(
+            controller: null,
+            autofocus: false,
+             style:
+                  new TextStyle(fontSize: 18.0, color: Color.fromARGB(255, 164, 170, 177)),
+                  decoration: new InputDecoration(
+                    filled: true,
+
+                    fillColor: Colors.white,
+                    hintText: 'Busque no Mercado Aberto',
+                    contentPadding: const EdgeInsets.fromLTRB(40.0, 10.0, 20.0, 10.0),
+                    focusedBorder: OutlineInputBorder(
+                      borderSide: new BorderSide(color: Colors.white),
+                      borderRadius: new BorderRadius.circular(25.7),
+                    ),
+                    
+                    enabledBorder: UnderlineInputBorder(
+                      borderSide: new BorderSide(color: Colors.white),
+                      borderRadius: new BorderRadius.circular(25.7),
+                    ),
+
+                    prefixIcon: Icon(
+                            Icons.search,
+                            color: Colors.grey,
+                          ),
+                        ),
+                  ),
         ),
-
-         actions: <Widget>[
-          IconButton(
-            icon: const Icon(Icons.shopping_cart_outlined),
-            tooltip: 'Seu carrinho',
-             onPressed: () {},
-          )
-        ]
         
-       
+        backgroundColor: Color(0xfff5d415),
+        actions: <Widget>[
+          IconButton(
+            icon: const Icon(Icons.shopping_cart_outlined,color: Colors.black),
+            tooltip: 'Seu carrinho',
+            onPressed: () {},
+          )
+        ],
+        bottom: PreferredSize(
+            preferredSize: const Size.fromHeight(30.0),
+            child: Row(
+              children: <Widget>[
+                Icon(Icons.location_pin ),
+                Text('Enviar para Marcello Queiroz - Rua Jardim Paulista, 56')
+              ],
+            ),
+             
+            ),
       ),
-
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+      body: Container(
+         decoration: const BoxDecoration(
+          gradient: LinearGradient(
+            begin: Alignment.topCenter,
+            end: Alignment(0, 0),
+            colors: <Color>[
+              Color(0xfff5d415),
+              Color(0xfff5f5f5)
+            ], // Gradient from https://learnui.design/tools/gradient-generator.html
+            tileMode: TileMode.clamp,
+          ),
+         ),
+        child: Center(
+          child: Text('pao'),
+        )
           
         ),
-      ),
-      
-    );
+      );
   }
 }
