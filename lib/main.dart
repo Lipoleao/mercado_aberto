@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:carousel_slider/carousel_slider.dart';
+import 'package:paodoce_01/components/butao_roxo.dart';
+import 'package:paodoce_01/components/card_frete.dart';
+import 'package:paodoce_01/components/carousel.dart';
 
 void main() {
   runApp(const MyApp());
@@ -20,6 +24,8 @@ class MyApp extends StatelessWidget {
     );
   }
 }
+
+
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({Key? key, required this.title}) : super(key: key);
@@ -109,15 +115,31 @@ class _MyHomePageState extends State<MyHomePage> {
             colors: <Color>[
               Color(0xfff5d415),
               Color(0xfff5f5f5)
-            ], // Gradient from https://learnui.design/tools/gradient-generator.html
+            ],
             tileMode: TileMode.clamp,
           ),
          ),
-        child: Center(
-          child: Text('pao'),
-        )
-          
+         child:SingleChildScrollView(
+         child: Column(
+          children: [
+            const Padding(padding: EdgeInsets.all(5)),
+              Carrosel(),
+            
+            //Botao Roxo
+            const Padding(padding: EdgeInsets.all(5)),
+            ButaoRoxo(),
+
+            //Card frete gratís
+
+            const Padding(padding: EdgeInsets.all(5)),
+            CardVerde(),
+            
+          ]
         ),
+        
+         ) 
+      ),
       );
+      
   }
 }
