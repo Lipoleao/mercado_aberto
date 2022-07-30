@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:paodoce_01/components/butao_bottom.dart';
 import 'package:paodoce_01/components/butao_roxo.dart';
 import 'package:paodoce_01/components/card_frete.dart';
 import 'package:paodoce_01/components/carousel.dart';
+import 'package:paodoce_01/components/enviar.dart';
+
 
 void main() {
   runApp(const MyApp());
@@ -100,8 +103,8 @@ class _MyHomePageState extends State<MyHomePage> {
             preferredSize: const Size.fromHeight(30.0),
             child: Row(
               children: <Widget>[
-                Icon(Icons.location_pin ),
-                Text('Enviar para Marcello Queiroz - Rua Jardim Paulista, 56')
+                Enviar(),
+
               ],
             ),
              
@@ -133,13 +136,33 @@ class _MyHomePageState extends State<MyHomePage> {
 
             const Padding(padding: EdgeInsets.all(5)),
             CardVerde(),
-            
+
+            //butao embaixo
+            const Padding(padding: EdgeInsets.all(5)),
+
+            Row(children: [
+              Padding(padding: EdgeInsets.all(5)),
+              ButaoKiwi(icone: Icons.send_to_mobile_outlined, texto: "Acessórios",),          
+              Padding(padding: EdgeInsets.all(5)),
+              ButaoKiwi(icone: Icons.sell_outlined, texto: "Promoções",),        
+              Padding(padding: EdgeInsets.all(5)),
+              ButaoKiwi(icone: Icons.dry_cleaning_outlined, texto: "Roupas",),       
+              Padding(padding: EdgeInsets.all(5)),
+              ButaoKiwi(icone: Icons.directions_car_sharp, texto: "Veículos",),
+              Padding(padding: EdgeInsets.all(5)),
+              ButaoKiwi(icone: Icons.add, texto: "Ver Mais",),
+              ],),
+
           ]
+          
         ),
-        
+
          ) 
-      ),
+      )
+         
       );
+      
+      
       
   }
 }
