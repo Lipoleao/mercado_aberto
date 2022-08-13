@@ -16,9 +16,9 @@ class Carrosel extends StatelessWidget {
     Image.network('https://http2.mlstatic.com/D_NQ_762493-MLA50923806616_072022-OO.webp')
    ],
    options: CarouselOptions(
-      height: 800,
+      height: 900,
       aspectRatio: 16/9,
-      viewportFraction: 0.8,
+      viewportFraction: 1.5,
       initialPage: 0,
       enableInfiniteScroll: true,
       reverse: false,

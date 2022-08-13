@@ -22,18 +22,25 @@ class _EnviarState extends State<Enviar> {
         setState(() => 
           showDialog(context: context,
            builder: (BuildContext context){
-            return AlertDialog(
+            return CupertinoAlertDialog(
                 title: Text("Digite seu CEP"),
-                content: TextFormField(
+                content: Card(
+                  color: Colors.transparent,
+                  elevation:0.0,
+                  child:Column(children: [
+                    TextField(
                 controller: controller,  
                 ),
+
+                  ],)
+                ),
                 actions: [
-                  TextButton(onPressed: (){
+                  CupertinoDialogAction(onPressed: (){
 
                     Navigator.of(context).pop();
                   },
                   child: const Text("Cancelar")),
-                  TextButton(onPressed: (){
+                  CupertinoDialogAction(onPressed: (){
                   CEP =controller.text;
                   setState(() {
                     
@@ -43,8 +50,8 @@ class _EnviarState extends State<Enviar> {
                   child: const Text("OK"))
                
                 ],
-                elevation: 24.0,
-                backgroundColor: Colors.white,
+                //elevation: 24.0,
+                //backgroundColor: Colors.white,
                 
               ); 
 
